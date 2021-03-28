@@ -1,0 +1,25 @@
+<header class="main-header">
+    <nav class="main-header__nav">
+        <ul class="main-header__item-list">
+            <li class="main-header__item">
+                <a class="<%= path === '/' ? 'active' : '' %>" href="/">home</a></li>
+            <li class="main-header__item">
+                <a class="<%= path === '/cart' ? 'active' : '' %>" href="/student/addstudent">student reg</a></li>
+                <li class="dropdown">
+                    <button class="dropbtn">Login
+                      <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                      <a href="/adminlogin">admin login</a>
+                      <a href="/companylogin">company login</a>
+                      <a href="/studentlogin">student login</a>
+                    </div>
+                  <li>
+                <li class="main-header__item">
+                <a class="<%= path === '/admin/add-product' ? 'active' : '' %>" href="/contact-us">contact us</a></li>
+            <li class="main-header__item">
+                <a class="<%= path === '/admin-products' ? 'active' : '' %>" href="/about-us">About us</a></li>
+
+        </ul>
+    </nav>
+</header>

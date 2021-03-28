@@ -1,0 +1,26 @@
+<header class="main-header">
+    <nav class="main-header__nav">
+        <ul class="main-header__item-list">
+            <li class="main-header__item">
+                <a class="<%= path === '/' ? 'active' : '' %>" href="/admin">home</a></li>
+            <li class="main-header__item">
+                <a class="<%= path === '/cart' ? 'active' : '' %>" href="/admin/addcompany">Add-Company</a></li>
+                <li class="main-header__item">
+                    <a class="<%= path === '/cart' ? 'active' : '' %>" href="/admin/all-students">All-Students</a></li>
+                        
+                <li>
+                <li class="main-header__item">
+                <a class="<%= path === '/admin/add-product' ? 'active' : '' %>" href="/admin/all-companies">All-Companies</a></li>
+                <li class="main-header__item">
+                    <a class="<%= path === '/admin/add-product' ? 'active' : '' %>" href="/admin/all-admin">All-admin</a></li>
+                
+                <li class="main-header__item">
+                <a class="<%= path === '/admin-products' ? 'active' : '' %>" href="/admin/add-admin">Add-Admin</a></li>
+                <form action="/logout" method="post">
+                <li class="main-header__item">
+                        <button type="submit">Logout</button>
+                    </form>
+
+            </ul>
+    </nav>
+</header>
