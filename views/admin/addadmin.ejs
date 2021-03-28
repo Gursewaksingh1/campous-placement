@@ -1,0 +1,42 @@
+<%- include('../includes/head.ejs')%>
+<link rel="stylesheet" href="/css/forms.css">
+<link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+    <%- include('../includes/adminnav.ejs')%>
+<main>
+    <form class="product-form" action="<% if (editing){ %>edit-admin <% } else {%>add-admin<% }%>" method="POST">
+    <div class="form-control">
+        <label for="Name">Name</label>
+        <input type="text" name="name" id="name" value="<%if (editing) {%><%= admin.name%><% }%>">
+    </div>
+    <div class="form-control">
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email" value="<%if (editing) {%> <%= admin.email%> <% } %>">
+    </div>
+    <div class="form-control">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" value="<% if (editing) { %><%= product.email %><% } %>">
+            
+            </div>
+    <div class="form-control">
+        <label for="sinceInCompany">sinceInCompany</label>
+        <input type="number" name="sinceInCompany" id="sinceInCompany" value="<% if (editing) {%> <%= admin.sinceInCompany%> <% } %>">
+    </div>
+    <div class="form-control">
+        <label for="ContactNo">ContactNo</label>
+        <input type="number" name="ContactNo" id=" ContactNo" value="<% if (editing) {%> <%= admin.ContactNo%> <% }%>">
+    </div>
+    <div class="form-control">
+        <label for="address">Address</label>
+        <input type="text" name="address" id="address" value="<% if (editing) {%> <%= admin.address%> <% } %>">
+    </div>
+    <% if (editing) {%>
+        <input type="hidden" name="adminId" value="<%= admin._id%>">
+        <% } %>
+        <button class="btn" type="submit"> <%if (editing) {%> update-admin <%} else {%> add-admin <% } %></button> 
+    </form>
+
+</main>
+<%-include('../includes/end.ejs')%>
