@@ -1,0 +1,48 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+    
+    <% if(foradmin) {%>
+    <%- include('../includes/adminnav.ejs') %>
+     <% } else {%>
+        <%- include('../includes/companynav.ejs') %>
+        <%}%>
+    <main>
+        <% if (prods.length > 0) { %>
+            <div class="grid">
+                
+                    <table border="1px solid black">
+                        <tr>
+                            <th>nameOfCompany</th>
+                            <th>Email</th>
+                            <th>ownerName</th>
+                            <th>aboutCompany</th>
+                        </tr>
+                        <% for (let product of prods) { %>
+                        <tr>
+                            <td><%=product.nameOfCompany%></td>
+                            <td><%=product.email%></td>
+                            <td><%=product.ownerName%></td>
+                            <td><%=product.aboutCompany%></td>
+                            <% if(foradmin) {%>
+                            <td> <a href="/admin/edit-company/<%=product._id%>" class="btn">Update</a> </td>
+                            
+                            <form action="delete-company" method="POST">
+                                <td> <button class="btn" type="submit">delete</button>
+                                    <input type="hidden" value="<%= product._id%>" name="companyid"></td></form>
+                                
+                            </tr>
+                            <% } %>
+                        <% } %>
+                    </table>
+                    
+                
+            </div>
+
+        <% } else { %>
+            <h1>No company Found!</h1>
+        <% } %>
+    </main>
+<%- include('../includes/end.ejs') %>

@@ -1,0 +1,41 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+    <%- include('../includes/companynav.ejs') %>
+
+    <main>
+        <% if (prods.length > 0) { %>
+            <div class="grid">
+                
+                    <table border="1px solid black">
+                        <tr>
+            <th>MatricsMarks</th>
+            <th>SecondayMarks</th>
+            <th>GradutionMarks</th>
+            <th>Experience</th>
+            <th>StudentId</th>
+            <th>Student-Pic</th>
+        </tr>
+        <% for (let Student of prods) { %>
+        <tr>
+            <td><%=Student.marticsMarks%></td>
+            <td><%=Student.secondaryMarks%></td>
+            <td><%=Student.gradutionMarks%></td>
+            <td><%=Student.experience%></td>
+            <td><%=Student.Studentid%></td>
+            <td><img src="..\images\01.jpg" alt="none" height="100" width="100"></td>
+            
+
+        </tr>
+        <% } %>
+</table>
+
+
+</div>
+<% } else { %>
+<h1>No company Found!</h1>
+<% } %>
+</main>
+<%- include('../includes/end.ejs') %>
