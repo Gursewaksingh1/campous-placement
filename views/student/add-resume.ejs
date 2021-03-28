@@ -1,0 +1,39 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+   <%- include('../includes/studentnav.ejs') %>
+
+    <main>
+        <form class="product-form" action="/student/<% if (editing) { %>add-resume<% } else { %>add-resume<% } %>" method="POST">
+            <div class="form-control">
+                <label for="marticsMarks">marticsMarks</label>
+                <input type="text" name="marticsMarks" id="marticsMarks" value="<% if (editing) {%><%=product.name%><%}%>">
+            </div>
+            <div class="form-control">
+                <label for="secondaryMarks">secondaryMarks</label>
+                <input type="text" name="secondaryMarks" id="secondaryMarks" value="<% if (editing) { %><%= product.email %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="gradutionMarks">gradutionMarks</label>
+                <input type="text" name="gradutionMarks" id="gradutionMarks"  value="<% if (editing) { %><%= product.stream %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="experience">Experience</label>
+                <input name="experience" id="experience" value="<% if (editing) { %><%= product.inWhichYear %><% } %>"></input>
+            </div>
+            <div class="form-control">
+                <label for="imageUrl">Image URL</label>
+                <input type="text" name="imageUrl" id="imageUrl" value="<% if (editing) { %><%= product.imageUrl %><% } %>">
+            </div>
+            <% if (editing) { %>
+                <input type="hidden" value="<%= product._id %>" name="studentid">
+            <% } %>
+
+            <button class="btn" type="submit"><% if (editing) { %>Update Product<% } else { %>addstudent <% } %></button>
+        </form>
+
+    </main>
+<%- include('../includes/end.ejs') %>

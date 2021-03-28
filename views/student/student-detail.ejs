@@ -1,0 +1,35 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+   <%- include('../includes/studentnav.ejs') %>
+
+    <main>
+        <form class="product-form" action="/student/<% if (editing) { %>student-detail<% } else { %>addstudent<% } %>" method="POST">
+            <div class="form-control">
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" value="<% if (editing) {%><%=product.name%><%}%>">
+            </div>
+            <div class="form-control">
+                <label for="email">email</label>
+                <input type="text" name="email" id="email" value="<% if (editing) { %><%= product.email %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="stream">stream</label>
+                <input type="text" name="stream" id="stream"  value="<% if (editing) { %><%= product.stream %><% } %>">
+            </div>
+            <div class="form-control">
+                <label for="inWhichYear">inWhichYear</label>
+                <input name="inWhichYear" id="inWhichYear" value="<% if (editing) { %><%= product.inWhichYear %><% } %>"></input>
+            </div>
+            <% if (editing) { %>
+                <input type="hidden" value="<%= product._id %>" name="studentid">
+            <% } %>
+
+            <button class="btn" type="submit"><% if (editing) { %>Update student<% } else { %>addstudent <% } %></button>
+        </form>
+
+    </main>
+<%- include('../includes/end.ejs') %>
